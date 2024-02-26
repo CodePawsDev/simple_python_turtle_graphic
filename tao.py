@@ -1,15 +1,19 @@
 import turtle as t
-from random import random
 
-t.Pen()
-t.shape('turtle')
-colors =['pink', 'lightgreen', 'white', 'skyblue', 'red', 'orange', 'khaki']
-t.bgcolor('black')
-
-for i in range(300):
-    t.color(colors[int(random() * len(colors))])
-    t.right(90)
-    t.fd(1 + i)
+def draw(t, shape):
+    t.color('white')  
+    t.bgcolor('black') 
+    if shape == 'square':
+        degree = 90
+    elif shape == 'pentagon':
+        degree = 72
+    elif shape == 'octagon':
+        degree = 45
+    for i in range(200):        
+        t.right(degree)
+        t.fd(1 + i)
 
 t.hideturtle()
+shape = input('What shape do you want to draw?: ')
+draw(t, shape)
 t.mainloop()
